@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import MenuBar from './components/MenuBar';
 import AllCourses from './views/AllCourses';
 import EnrolledCourses from './views/EnrolledCourses';
+import LoginDialog from './components/LoginDialog';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AllCourses />} />
         <Route path="enrolledCourses" element={<EnrolledCourses />} />
+        <Route path="dialog" element={<LoginDialog />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
 

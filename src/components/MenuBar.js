@@ -11,7 +11,6 @@ import { JWT_COOKIE_NAME } from '../constant';
 
 export default function MenuBar() {
 
-    // if user already logged in?
     let hasLoggedIn = !!cookie.load(JWT_COOKIE_NAME);
     let bottonText = hasLoggedIn ? "Logout" : "Login"
 
@@ -20,11 +19,9 @@ export default function MenuBar() {
     const handleClickOpen = () => {
 
         if (hasLoggedIn) {
-            // if user alread logged in, pop up LoginDialog
             cookie.remove(JWT_COOKIE_NAME);
             window.location.reload();
         } else {
-            // if user hasn't logged in, pop up LoginDialog
             setOpen(true);
         }
 
@@ -32,9 +29,7 @@ export default function MenuBar() {
 
     const handleClose = () => {
         setOpen(false);
-        // console.log(username, password);
     };
-
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -51,7 +46,6 @@ export default function MenuBar() {
                 </Toolbar>
             </AppBar>
             <LoginDialog open={open} handleClose={handleClose} />
-
         </Box>
     );
 }

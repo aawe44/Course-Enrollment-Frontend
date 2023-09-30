@@ -10,19 +10,16 @@ export default function AllCourses() {
         () => {
             CourseService.getAllCoureses()
                 .then((response) => {
-                    // success
                     setCourses(response.data);
                     console.log(response.data);
                 })
                 .catch((error) => {
-                    // failed
                     console.error(error);
                 })
         }, []);
 
-
     const enrollCourse = (courseName) => {
-        CourseService.enrollCourse(courseName) //promise
+        CourseService.enrollCourse(courseName)
             .then(response => {
                 alert(`Congrats! ${courseName} enrollded successfully!`);
             }).catch(error => {
@@ -30,16 +27,13 @@ export default function AllCourses() {
             });
     };
 
-
-
     return (
         <div>
-            {/* <h1>This is All Courses.</h1> */}
             <CourseTable courses={courses}
                 buttonText={"Enroll"}
-                handelButtonClick={enrollCourse} 
-                buttonColor ={"success"}
-                />
+                handelButtonClick={enrollCourse}
+                buttonColor={"success"}
+            />
         </div>
     )
 }

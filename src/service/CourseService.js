@@ -11,12 +11,12 @@ export const CourseService = {
         return axios.get("api/student/courses")
     },
 
-    enrollCourse: function (courseName) { 
-        
+    enrollCourse: function (courseName) {
+
         return axios.post(`/api/student/course/${courseName}`)
     },
 
-    dropCourse: function (courseName) { 
+    dropCourse: function (courseName) {
         return axios.delete(`/api/student/course/${courseName}`)
     }
 

@@ -12,22 +12,20 @@ import cookie from "react-cookies";
 import { JWT_COOKIE_NAME } from "../constant"
 
 export default function LoginDialog(props) {
-    
-    const [errorMsg, setErrorMsg] = React.useState("");
 
+    const [errorMsg, setErrorMsg] = React.useState("");
 
     let username;
     let password;
 
     const login = () => {
-        // login logic 
-        AuthService.getJWT(username, password) //promise
-            .then(response => {
-                const jwt = response.data.id_token;
 
-                // 把 JWT存在cookie 裡面(key-value pair的存)
+        AuthService.getJWT(username, password)
+            .then(response => {
+
+                const jwt = response.data.id_token;
                 cookie.save(JWT_COOKIE_NAME, jwt);
-                window.location.reload(); //refresh the page to activate the JWT
+                window.location.reload();
 
             }).catch(error => {
 
@@ -39,10 +37,6 @@ export default function LoginDialog(props) {
 
     return (
         <div>
-            {/* <Button variant="outlined" onClick={handleClickOpen}>
-                Open form dialog
-            </Button> */}
-            {/* <Dialog open={open} onClose={handleClose}> */}
             <Dialog open={props.open} onClose={props.handleClose}>
                 <DialogTitle>Please Enter Username and Password</DialogTitle>
                 <DialogContent>
@@ -53,9 +47,6 @@ export default function LoginDialog(props) {
                         label="Username"
                         fullWidth
                         variant="standard"
-                        // onChange={(event) => {
-                        //     username = event.target.value
-                        // }} // event => useranme = event.target.value
                         onChange={(event => username = event.target.value)}
                     />
 
