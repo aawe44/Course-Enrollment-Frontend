@@ -1,0 +1,3 @@
+
+export const JWT_COOKIE_NAME = "JWT_COOKIE_KEY_NAME";
+
