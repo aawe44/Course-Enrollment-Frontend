@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import LoginDialog from './LoginDialog';
 import cookie from "react-cookies";
 import { JWT_COOKIE_NAME } from '../constant';
+import RegisterDialog from './RegisterDialog';
 
 export default function MenuBar() {
 
@@ -16,6 +17,8 @@ export default function MenuBar() {
 
 
     const [open, setOpen] = React.useState(false);
+    const [registerOpen, setRegisterOpen] = React.useState(false);
+
     const handleClickOpen = () => {
 
         if (hasLoggedIn) {
@@ -31,6 +34,14 @@ export default function MenuBar() {
         setOpen(false);
     };
 
+    const handleRegisterOpen = () => {
+        setRegisterOpen(true);
+    }
+
+    const handleRegisterClose = () => {
+        setRegisterOpen(false);
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -44,8 +55,10 @@ export default function MenuBar() {
                     <Button color="inherit" onClick={handleClickOpen}>{bottonText}</Button>
 
                 </Toolbar>
-            </AppBar>
-            <LoginDialog open={open} handleClose={handleClose} />
+            </AppBar>            
+            <LoginDialog open={open} handleClose={handleClose} handleRegisterOpen={handleRegisterOpen} />
+            <RegisterDialog open={registerOpen} handleClose={handleRegisterClose} />
+            
         </Box>
     );
 }

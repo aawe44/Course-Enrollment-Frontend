@@ -7,5 +7,9 @@ export const AuthService = {
             "username": username,
             "password": password
         });
+    },
+
+    register: function (userInfo) {
+        return axios.post("/api/register", userInfo);
     }
 }
