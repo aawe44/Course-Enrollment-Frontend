@@ -28,8 +28,9 @@ Enrolling in courses can sometimes be a cumbersome process for students, involvi
 - **Course Management:** Manage your enrolled courses, including the ability to drop courses if necessary.
 
 ## Demo
-
-To see the Course Enrollment Frontend in action, check out our live demo [here](#demo-link).
+- **All courses:** ![](/img/allcourses.jpg)
+- **Enroll course:** ![](/img/enrollcourse.jpg)
+- **Drop courses:** ![](/img/dropcourse.jpg)
 
 ## Technologies Used
 
